@@ -32,6 +32,8 @@ python main.py /your/video/file/gohere/
 
 See? Much better
 
+There is a demo video on the /src/ directory. You can try with it.
+
 And for dependencies (ha! caught the lazy reader): mpv, mpvpaper
 
 And to compile mpvpaper: libmpv-dev (apt), mpv-libs-devel (dnf). Arch users need not to worry about this
