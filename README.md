@@ -1,63 +1,16 @@
+# Paperlike, dynamic wallpaper for Linux
+Thanks weebp
 
-free and open-source wallpaper engine. set any window or video as your
-wallpaper
 
-UPDATE: for an easy to use front-end, check out https://github.com/SegoCode/AutoWall
 
-![](https://i.imgur.com/Hqy1uX2.gif)
-
-![](https://i.imgur.com/tZ14Znr.gif)
-
-![](https://i.imgur.com/VB1Glnu.gif)
-
-github doesn't like having big gifs in the readme, so here's a
-[imgur gallery](https://imgur.com/a/vkWOA)
-
-this was put together in ~2 afternoons worth of coding. I can't maintain this
-very regularly as I don't use windows and I have to either fire up a virtual
-machine or install windows temporarily to my 2nd pc to work on it, so help
-and testing are welcome
-
-only tested on Windows 10 version 1709 build 16299.15, should work on all
-versions of windows 10 and 8.1 as well as Windows 7
-
-# Windows 7 prerequisites
-go to start -> search for
-"Adjust the appearance and performance of windows" and click it, then
-make sure at least these are checked
-* Animate controls and elements inside windows
-* Enable desktop composition
-* Use visual styles on windows and buttons
-
-if you don't enable these settings, weebp won't be able to put your
-animated wallpaper behind the icons. it will still work, but it will
-cover your desktop icons
 
 # roadmap
-- initial focus is on the command-line interface just because that's what I
-would use, but a gui is not hard to implement later on. it's easy to
-write glue scripts to automate it or bind it to keys anyways
-- forwarding mouse interactions to the captured windows should be easy and
-would allow interactive wallpapers, I'll implement it ASAP
+
 
 # installation
-download the latest binaries from
-https://github.com/Francesco149/weebp/releases
 
-extract the zip and place the folder anywhere you like
 
-double-click ```0bootstrap```. this will run ```install.ps1```. it's
-recommended that you check install.ps1 in notepad before running this just
-to make sure that it hasn't been tampered with and doesn't do anything bad
-
-this will add the folder to your ```Path``` environment variable and create
-three shortcuts on your desktop to quickly add windows to your wallpaper
-and control mpv without opening a shell
-
-type ```wp``` in a powershell or cmd window to check out the available
-commands
-
-# mpv
+# configure mpv
 mpv is the ideal candidate to play video files or stream videos to your
 desktop when combined with weebp. it's an extremely powerful player
 that combined with youtube-dl can stream videos and livestreams from almost
