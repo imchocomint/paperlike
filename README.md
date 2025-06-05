@@ -22,26 +22,33 @@ This was written for like 2 hours with the help of Gemini 2.5 Pro. Of course, I'
 
 
 # Installation
-Download from Release.
+Dependencies: mpv, mpvpaper
 
-Launch:
+To compile mpvpaper: libmpv-dev (apt), mpv-libs-devel (dnf). Arch users need not to worry about this
 
 `
-./paperlike <your video file>
+wget https://github.com/imchocomint/paperlike/releases/download/dotone/install.sh
 `
+
+`
+./install.sh
+`
+
+# Launch
+
+`
+paperlike <your video file>
+`
+
 Same applies to the source Python file
 
 The software defaults to rendering by CPU. External arguments is needed to use the GPU (see below)
 
 There is a demo video on the /src/ directory. You can try with it. If your PC is capable enough, use the 4K video.
 
-And for dependencies (ha! caught the lazy reader): mpv, mpvpaper
-
-And to compile mpvpaper: libmpv-dev (apt), mpv-libs-devel (dnf). Arch users need not to worry about this
-
 # Launch arguments
 `
-./paperlike <file> "(your mpv arguments go here)"
+paperlike <file> "(your mpv arguments go here)"
 `
 
 mpv arguments are available at [their wiki](https://mpv.io/manual/stable/). Some crucial arguments are added in the source code.
