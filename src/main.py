@@ -4,21 +4,34 @@ import sys
 import os
 #import moviepy.editor as mp
 
-def set_video_wallpaper_wl(video_file):
+def set_video_wallpaper_wl(video_file, extarg=None):
     command = [
         'mpvpaper',
         'ALL',
         '-fs',
         '-l',
         'background',
-        video_file
-   ]
+        '-o'
+    ]
+    mpv_options_list = [
+        '--no-audio',
+        '--loop=inf',
+        '--no-stop-screensaver',
+        '--player-operation-mode=pseudo-gui'
+    ]
+
+    if extarg:
+        mpv_options_list.extend(extarg.split())
+
+    mpv_options_string = " ".join(mpv_options_list)
+    command.append(mpv_options_string)
+
+    command.append(video_file)
+
+    
+    print(f"DEBUG: Wayland command: {command}")
     try:
-        # Using subprocess.run to execute the command.
-        # This will block the script until you close mpv (e.g., by killing it).
-        # For a true background process, you would use subprocess.Popen.
         process = subprocess.Popen(command)
-        # You can optionally wait for it to finish or just let it run
         # process.wait() 
     except FileNotFoundError:
         print("Error: 'mpv' and/or mpvpaper can't be used.", file=sys.stderr)
@@ -27,23 +40,23 @@ def set_video_wallpaper_wl(video_file):
         print(f"An error occurred: {e}", file=sys.stderr)
         sys.exit(1)
 
-def set_video_wallpaper_x11(video_file):
+def set_video_wallpaper_x11(video_file, extarg=None):
     command = [
         'mpv',
         '--wid=0',
         '--loop=inf',
         '--no-audio',      
         '--no-stop-screensaver',
-        '--player-operation-mode=pseudo-gui', 
+        '--player-operation-mode=pseudo-gui',
         video_file
     ]
+    if extarg:
+        command.extend(extarg.split())
+    
+    command.append(video_file)
 
     try:
-        # Using subprocess.run to execute the command.
-        # This will block the script until you close mpv (e.g., by killing it).
-        # For a true background process, you would use subprocess.Popen.
         process = subprocess.Popen(command)
-        # You can optionally wait for it to finish or just let it run
         # process.wait() 
     except FileNotFoundError:
         print("Error: 'mpv' can't be used.", file=sys.stderr)
@@ -55,7 +68,13 @@ def set_video_wallpaper_x11(video_file):
 def get_display_server():
     xdg_session_type = os.environ.get("XDG_SESSION_TYPE")
     if xdg_session_type:
-        return xdg_session_type.capitalize()
+        if xdg_session_type.lower() == "wayland": # Case-insensitive compare
+            return "Wayland"
+        elif xdg_session_type.lower() == "x11": # Case-insensitive compare
+            return "X11"
+        else:
+            return "Unknown"
+
 
     if "WAYLAND_DISPLAY" in os.environ:
         return "Wayland"
@@ -73,15 +92,27 @@ def main():
         "video_file",
         help="The path to the video file you want to set as the wallpaper."
     )
+    parser.add_argument(
+        "extarg",
+        nargs='?',
+        default=None,
+        help="Optional external arguments for mpv/mpvpaper (see mpv wiki). Enclose in quotes if multiple."
+    )
+    
+    args = parser.parse_args()
     session = get_display_server()
+
+    if not args.video_file or not os.path.exists(args.video_file):
+        print(f"Error: Video file '{args.video_file}' not found or not specified.", file=sys.stderr)
+        sys.exit(1)
+
     if session == "Unknown":
         sys.exit(1)
     elif session == "Wayland":
-        args = parser.parse_args()
-        set_video_wallpaper_wl(args.video_file)
+        set_video_wallpaper_wl(args.video_file, args.extarg)
     else:
-        args = parser.parse_args()
-        set_video_wallpaper_x11(args.video_file)
+        set_video_wallpaper_x11(args.video_file, args.extarg)
+
 
 if __name__ == "__main__":
     main()
