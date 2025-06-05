@@ -28,8 +28,7 @@ def set_video_wallpaper_wl(video_file, extarg=None):
 
     command.append(video_file)
 
-    
-    print(f"DEBUG: Wayland command: {command}")
+
     try:
         process = subprocess.Popen(command)
         # process.wait() 
