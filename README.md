@@ -22,21 +22,14 @@ This was written for like 2 hours with the help of Gemini 2.5 Pro. Of course, I'
 
 
 # Installation
-Clone the repository.
+Download from Release.
 
-Since no binary package is available, you may want to use the script with Python:
-
-`
-python3 main.py /your/video/file/gohere/
-`
-
-Unless you want to shit yourself in your ass, please install python-is-python3
+Launch:
 
 `
-python main.py /your/video/file/gohere/
+./main <your video file>
 `
-
-See? Much better
+Same applies to the source Python file
 
 The software defaults to rendering by CPU. External arguments is needed to use the GPU (see below)
 
@@ -48,7 +41,7 @@ And to compile mpvpaper: libmpv-dev (apt), mpv-libs-devel (dnf). Arch users need
 
 # Launch arguments
 `
-python main.py main.mp4 "(your mpv arguments go here)"
+main.py <file> "(your mpv arguments go here)"
 `
 
 mpv arguments are available at [their wiki](https://mpv.io/manual/stable/). Some crucial arguments are added in the source code.
