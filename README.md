@@ -27,7 +27,7 @@ Download from Release.
 Launch:
 
 `
-./main <your video file>
+./paperlike <your video file>
 `
 Same applies to the source Python file
 
@@ -41,7 +41,7 @@ And to compile mpvpaper: libmpv-dev (apt), mpv-libs-devel (dnf). Arch users need
 
 # Launch arguments
 `
-main.py <file> "(your mpv arguments go here)"
+./paperlike <file> "(your mpv arguments go here)"
 `
 
 mpv arguments are available at [their wiki](https://mpv.io/manual/stable/). Some crucial arguments are added in the source code.
@@ -49,7 +49,7 @@ mpv arguments are available at [their wiki](https://mpv.io/manual/stable/). Some
 Here is how you can force to render by GPU (I'm defaulting to VAAPI protocol):
 
 `
-python main.py main.mp4 "--vo=gpu --hwdec=vaapi"
+paperlike main.mp4 "--vo=gpu --hwdec=vaapi"
 `
 # Issues
 Currently our only issue is with KDE Plasma.
