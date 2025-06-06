@@ -3,7 +3,7 @@ Thanks weebp
 
 This is a rewrite of weebp in Python, which aim to port the software to Linux (since the repo owner is better at Python).
 
-This rewrite is only compatitable with .mp4 files. No other format is supported, although a convert function is ~yet to be implemented~ in testing phase.
+This rewrite is only compatitable with .mp4 files. No other format is supported, although a convert function is ~yet to be implemented~ ~in testing phase~ going live.
 
 This was written with the help of Gemini 2.5 Pro. Of course, I'm still the main contributer though.
 
@@ -16,12 +16,12 @@ This was written with the help of Gemini 2.5 Pro. Of course, I'm still the main 
 
 - [ ] Works on KDE Plasma (fuck that shit)
 
-- [ ] Have a convert function for any other file type --> .mp4 (on debugging releases) 
+- [ ] Have a convert function for any other file type --> .mp4 (is going live) 
 
 - [ ] Load playlist/anything from the Internet
 
 # Installation & Usage (stable)
-Dependencies: mpv, mpvpaper
+Dependencies: mpv, mpvpaper, ffmpeg
 
 To compile mpvpaper: libmpv-dev (apt), mpv-libs-devel (dnf). Arch users need not to worry about this
 
@@ -41,9 +41,9 @@ paperlike <your video file>
 
 Same applies to the source Python file
 
-The software defaults to rendering by CPU. External arguments is needed to use the GPU (see below)
+The software defaults to rendering by CPU. External arguments is needed to use the GPU (see below).
 
-There is a demo video on the /src/srcmtr/ directory. You can try with it. If your PC is capable enough, use the 4K video. The GIF file is for debugging branch only.
+There is a demo video on the /demo-files/ directory. You can try with it. If your PC is capable enough, use the 4K video. The GIF file is for debugging branch only.
 
 ## Launch arguments
 `
@@ -60,7 +60,11 @@ paperlike main.mp4 "--vo=gpu --hwdec=vaapi"
 # Install (development/debugging)
 Module(s) required: moviepy
 
+Dependencies: all above
+
 Clone the repository. Open /src/dbg/ folder. All Python scripts are in that folder.
+
+For testing binaries, they are in /test-binaries/.
 
 Since all launch arguments are the same as stable version I will not elaborate on that part.
 
