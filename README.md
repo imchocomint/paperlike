@@ -3,9 +3,9 @@ Thanks weebp
 
 This is a rewrite of weebp in Python, which aim to port the software to Linux (since the repo owner is better at Python).
 
-This rewrite is only compatitable with .mp4 files. No other format is supported, although a conversion function is yet to be implemented.
+This rewrite is only compatitable with .mp4 files. No other format is supported, although a convert function is ~yet to be implemented~ in testing phase.
 
-This was written for like 2 hours with the help of Gemini 2.5 Pro. Of course, I'm still the main contributer though.
+This was written with the help of Gemini 2.5 Pro. Of course, I'm still the main contributer though.
 
 # Roadmap
 - [x] Works on Wayland
@@ -16,12 +16,11 @@ This was written for like 2 hours with the help of Gemini 2.5 Pro. Of course, I'
 
 - [ ] Works on KDE Plasma (fuck that shit)
 
-- [ ] Have a convert function for any other file type --> .mp4 (soon!)
+- [ ] Have a convert function for any other file type --> .mp4 (on debugging releases) 
 
 - [ ] Load playlist/anything from the Internet
 
-
-# Installation
+# Installation & Usage (stable)
 Dependencies: mpv, mpvpaper
 
 To compile mpvpaper: libmpv-dev (apt), mpv-libs-devel (dnf). Arch users need not to worry about this
@@ -34,7 +33,7 @@ wget https://github.com/imchocomint/paperlike/releases/download/dotone/install.s
 ./install.sh
 `
 
-# Launch
+## Launch
 
 `
 paperlike <your video file>
@@ -44,9 +43,9 @@ Same applies to the source Python file
 
 The software defaults to rendering by CPU. External arguments is needed to use the GPU (see below)
 
-There is a demo video on the /src/ directory. You can try with it. If your PC is capable enough, use the 4K video.
+There is a demo video on the /src/srcmtr/ directory. You can try with it. If your PC is capable enough, use the 4K video. The GIF file is for debugging branch only.
 
-# Launch arguments
+## Launch arguments
 `
 paperlike <file> "(your mpv arguments go here)"
 `
@@ -58,5 +57,14 @@ Here is how you can force to render by GPU (I'm defaulting to VAAPI protocol):
 `
 paperlike main.mp4 "--vo=gpu --hwdec=vaapi"
 `
+# Install (development/debugging)
+Module(s) required: moviepy
+
+Clone the repository. Open /src/dbg/ folder. All Python scripts are in that folder.
+
+Since all launch arguments are the same as stable version I will not elaborate on that part.
+
 # Issues
 Currently our only issue is with KDE Plasma.
+
+On debugging releases, see Issues.
