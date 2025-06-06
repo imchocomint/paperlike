@@ -64,7 +64,7 @@ Dependencies: all above
 
 Clone the repository. Open /src/dbg/ folder. All Python scripts are in that folder.
 
-For testing binaries, they are in /test-binaries/.
+For testing binaries, they are in /test-binaries/. You can use either the single binary or multi binary; the differrences are how libraries are packaged.
 
 Since all launch arguments are the same as stable version I will not elaborate on that part.
 
