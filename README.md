@@ -22,33 +22,33 @@ This was written for like 2 hours with the help of Gemini 2.5 Pro. Of course, I'
 
 
 # Installation
-Clone the repository.
+Dependencies: mpv, mpvpaper
 
-Since no binary package is available, you may want to use the script with Python:
-
-`
-python3 main.py /your/video/file/gohere/
-`
-
-Unless you want to shit yourself in your ass, please install python-is-python3
+To compile mpvpaper: libmpv-dev (apt), mpv-libs-devel (dnf). Arch users need not to worry about this
 
 `
-python main.py /your/video/file/gohere/
+wget https://github.com/imchocomint/paperlike/releases/download/dotone/install.sh
 `
 
-See? Much better
+`
+./install.sh
+`
+
+# Launch
+
+`
+paperlike <your video file>
+`
+
+Same applies to the source Python file
 
 The software defaults to rendering by CPU. External arguments is needed to use the GPU (see below)
 
 There is a demo video on the /src/ directory. You can try with it. If your PC is capable enough, use the 4K video.
 
-And for dependencies (ha! caught the lazy reader): mpv, mpvpaper
-
-And to compile mpvpaper: libmpv-dev (apt), mpv-libs-devel (dnf). Arch users need not to worry about this
-
 # Launch arguments
 `
-python main.py main.mp4 "(your mpv arguments go here)"
+paperlike <file> "(your mpv arguments go here)"
 `
 
 mpv arguments are available at [their wiki](https://mpv.io/manual/stable/). Some crucial arguments are added in the source code.
@@ -56,7 +56,7 @@ mpv arguments are available at [their wiki](https://mpv.io/manual/stable/). Some
 Here is how you can force to render by GPU (I'm defaulting to VAAPI protocol):
 
 `
-python main.py main.mp4 "--vo=gpu --hwdec=vaapi"
+paperlike main.mp4 "--vo=gpu --hwdec=vaapi"
 `
 # Issues
 Currently our only issue is with KDE Plasma.
