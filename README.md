@@ -3,7 +3,7 @@ Thanks weebp
 
 This is a rewrite of weebp in Python, which aim to port the software to Linux (since the repo owner is better at Python).
 
-This rewrite is only compatitable with .mp4 files. No other format is supported, although a convert function is ~yet to be implemented~ ~in testing phase~ going live.
+This rewrite is only compatitable with .mp4 files. No other format is supported, and a convert function is available.
 
 This was written with the help of Gemini 2.5 Pro. Of course, I'm still the main contributer though.
 
@@ -11,14 +11,10 @@ This was written with the help of Gemini 2.5 Pro. Of course, I'm still the main 
 - [x] Works on Wayland
 
 - [x] External arguments to mpv
-
+- [x] Have a convert function for any other file type --> .mp4
 - [ ] Works on X11 (untested)
-
-- [ ] Works on KDE Plasma (fuck that shit)
-
-- [ ] Have a convert function for any other file type --> .mp4 (is going live) 
-
 - [ ] Load playlist/anything from the Internet
+- [ ] Works on KDE Plasma (fuck that shit)
 
 # Installation & Usage (stable)
 Dependencies: mpv, mpvpaper, ffmpeg
@@ -58,17 +54,9 @@ Here is how you can force to render by GPU (I'm defaulting to VAAPI protocol):
 paperlike main.mp4 "--vo=gpu --hwdec=vaapi"
 `
 # Install (development/debugging)
-Module(s) required: moviepy
+Currently no debugging version is active/live/available. The software will be in this form for a while.
 
-Dependencies: all above
-
-Clone the repository. Open /src/dbg/ folder. All Python scripts are in that folder.
-
-For testing binaries, they are in /test-binaries/. You can use either the single binary or multi binary; the differrences are how libraries are packaged.
-
-Since all launch arguments are the same as stable version I will not elaborate on that part.
+For extended development, clone the repository. Install proglog and moviepy.
 
 # Issues
 Currently our only issue is with KDE Plasma.
-
-On debugging releases, see Issues.
