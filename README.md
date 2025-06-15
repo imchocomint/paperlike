@@ -12,11 +12,6 @@ This was written with the help of AI. Of course, I'm still the main contributer 
 - [x] Works on X11 (i3wm; others untested)
 - [x] External arguments to mpv
 - [x] Have a convert function for any other file type --> .mp4
-<<<<<<< Updated upstream
-- [ ] Works on X11 (untested)
-=======
-- [ ] Works on KDE Plasma (fuck that shit)
->>>>>>> Stashed changes
 - [ ] Load playlist/anything from the Internet
 - [ ] Works on KDE Plasma (fuck that shit)
 
