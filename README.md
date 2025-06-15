@@ -5,14 +5,18 @@ This is a rewrite of weebp in Python, which aim to port the software to Linux (s
 
 This rewrite is only compatitable with .mp4 files. No other format is supported, and a convert function is available.
 
-This was written with the help of Gemini 2.5 Pro. Of course, I'm still the main contributer though.
+This was written with the help of AI. Of course, I'm still the main contributer though.
 
 # Roadmap
-- [x] Works on Wayland
-
+- [x] Works on Wayland (Hyprland; other untested)
+- [x] Works on X11 (i3wm; others untested)
 - [x] External arguments to mpv
 - [x] Have a convert function for any other file type --> .mp4
+<<<<<<< Updated upstream
 - [ ] Works on X11 (untested)
+=======
+- [ ] Works on KDE Plasma (fuck that shit)
+>>>>>>> Stashed changes
 - [ ] Load playlist/anything from the Internet
 - [ ] Works on KDE Plasma (fuck that shit)
 
@@ -26,7 +30,7 @@ wget https://github.com/imchocomint/paperlike/releases/download/dotone/install.s
 `
 
 `
-./install.sh
+sudo ./install.sh
 `
 
 ## Launch
@@ -39,7 +43,7 @@ Same applies to the source Python file
 
 The software defaults to rendering by CPU. External arguments is needed to use the GPU (see below).
 
-There is a demo video on the /demo-files/ directory. You can try with it. If your PC is capable enough, use the 4K video. The GIF file is for debugging branch only.
+There are demo files on the /demo-files/ directory. You can try them.
 
 ## Launch arguments
 `
