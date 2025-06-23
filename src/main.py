@@ -7,7 +7,7 @@ import shutil
 
 def set_video_wallpaper_wl(video_file, extarg=None):
     command = [ 'mpvpaper', 'ALL', '-fp', '-l', 'background', '-o' ]
-    mpv_options_list = [ '--no-audio', '--loop=inf', '--s', '--no-stop-screensaver', '--player-operation-mode=pseudo-gui' ]
+    mpv_options_list = [ '--no-audio', '--loop=inf', '--s', '--no-stop-screensaver', '--player-operation-mode=pseudo-gui','--really-quiet' ]
     if extarg: mpv_options_list.extend(extarg.split())
     mpv_options_string = " ".join(mpv_options_list)
     command.append(mpv_options_string)
@@ -19,7 +19,7 @@ def set_video_wallpaper_wl(video_file, extarg=None):
         sys.exit(1)
 
 def set_video_wallpaper_x11(video_file, extarg=None):
-    command = [ 'mpv', '--wid=0', '--loop=inf', '--no-audio', '--no-stop-screensaver', '--player-operation-mode=pseudo-gui' ]
+    command = [ 'mpv', '--wid=0', '--loop=inf', '--no-audio', '--no-stop-screensaver', '--player-operation-mode=pseudo-gui', '--really-quiet' ]
     if extarg: command.extend(extarg.split())
     command.append(video_file)
     try:
@@ -48,7 +48,7 @@ def convert_and_get_path(video_file_path: str) -> str:
             new_path = ppath(video_file_path)
             return new_path
         except ConversionError as e:
-            print(f"FATAL: The conversion failed.", file=sys.stderr)
+            print(f"The conversion failed.", file=sys.stderr)
             sys.exit(1)
     else:
         return video_file_path

@@ -3,7 +3,6 @@ from moviepy.video.io.VideoFileClip import VideoFileClip
 import sys
 from pathlib import Path
 import traceback
-import proglog
 import contextlib
 
 class ConversionError(Exception):
@@ -13,17 +12,14 @@ def conversion(input_path: Path, output_path: Path) -> None:
     try:
         with open(os.devnull, 'w') as devnull:
                 with contextlib.redirect_stdout(devnull), contextlib.redirect_stderr(devnull):
-                    # Run the conversion inside the silenced context
                     with VideoFileClip(str(input_path)) as video:
                         video.write_videofile(
                             str(output_path),
                             codec="libx264",
                             audio_codec="aac" if video.audio else None
-                            # Leave logger and verbose at their default, working values
+                            
                     )
     except Exception as e:
-        # The exception is caught outside the redirection, so we can
-        # still print the error to the now-restored console.
         tb_str = traceback.format_exc()
         print(f"An error occurred during conversion. Traceback:\n{tb_str}")
         raise ConversionError(f"MoviePy failed during conversion.")
