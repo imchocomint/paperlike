@@ -1,11 +1,13 @@
 # Paperlike, dynamic wallpaper for Linux
 Thanks weebp
 
-This is a rewrite of weebp in Python, which aim to port the software to Linux (since the repo owner is better at Python).
+This is a rewrite of weebp in Python. It is a wrapper for mpv/mpvpaper.
 
-This rewrite is only compatitable with .mp4 files. No other format is supported, and a convert function is available.
+This rewrite is only compatitable with .mp4 files, athough indirectly supporting other formats through a convert feature.
 
 This was written with the help of AI. Of course, I'm still the main contributer though.
+
+Why, you ask? This offers argumentless switching (quite neat for people who do want to change their BG regularly) and more convenient feature.
 
 # Roadmap
 - [x] Works on Wayland (Hyprland; other untested)
@@ -20,13 +22,10 @@ Dependencies: mpv, mpvpaper, ffmpeg
 
 To compile mpvpaper: libmpv-dev (apt), mpv-libs-devel (dnf). Arch users need not to worry about this
 
-`
+```
 wget https://github.com/imchocomint/paperlike/releases/download/dotone/install.sh
-`
-
-`
 sudo ./install.sh
-`
+```
 
 ## Launch
 
@@ -55,7 +54,7 @@ paperlike main.mp4 "--vo=gpu --hwdec=vaapi"
 # Install (development/debugging)
 Currently no debugging version is active/live/available. The software will be in this form for a while.
 
-For extended development, clone the repository. Install proglog and moviepy.
+For extended development, clone the repository. Install moviepy.
 
 # Issues
 Currently our only issue is with KDE Plasma.
