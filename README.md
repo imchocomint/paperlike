@@ -9,6 +9,10 @@ This was written with the help of AI. Of course, I'm still the main contributer 
 
 Why, you ask? This offers argumentless switching (quite neat for people who do want to change their BG regularly) and more convenient feature.
 
+Watch paperlike in action (Hyprland):
+
+[![paperlike in action (Hyprland)](https://img.youtube.com/vi/g84wBgZ1j5c/hqdefault.jpg)](https://www.youtube.com/watch?v=g84wBgZ1j5c)
+
 # Roadmap
 - [x] Works on Wayland (Hyprland; other untested)
 - [x] Works on X11 (i3wm; others untested)
