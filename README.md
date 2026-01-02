@@ -11,7 +11,7 @@ Why, you ask? This offers argumentless switching (quite neat for people who do w
 
 Watch paperlike in action (Hyprland):
 
-[![paperlike in action (Hyprland)](https://img.youtube.com/vi/g84wBgZ1j5c/hqdefault.jpg)](https://www.youtube.com/watch?v=g84wBgZ1j5c)
+[paperlike in action](https://youtu.be/g84wBgZ1J5c?si=Kbq2a-rE311KgYnb)
 
 # Roadmap
 - [x] Works on Wayland (Hyprland; other untested)
