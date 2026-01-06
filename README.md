@@ -18,6 +18,7 @@ Watch paperlike in action (Hyprland):
 - [x] Works on X11 (i3wm; others untested)
 - [x] External arguments to mpv
 - [x] Have a convert function for any other file type --> .mp4
+- [ ] Automatically use GPU rendering
 - [ ] Load playlist/anything from the Internet
 - [ ] Works on KDE Plasma (fuck that shit)
 
@@ -49,12 +50,6 @@ paperlike <file> "(your mpv arguments go here)"
 `
 
 mpv arguments are available at [their wiki](https://mpv.io/manual/stable/). Some crucial arguments are added in the source code.
-
-Here is how you can force to render by GPU (I'm defaulting to VAAPI protocol):
-
-`
-paperlike main.mp4 "--vo=gpu --hwdec=vaapi"
-`
 # Install (development/debugging)
 Currently no debugging version is active/live/available. The software will be in this form for a while.
 
