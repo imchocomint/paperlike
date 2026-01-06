@@ -4,10 +4,10 @@ import subprocess
 import sys
 import os
 import shutil
-
+from iset import hwdec_value, configread, configwrite
 def set_video_wallpaper_wl(video_file, extarg=None):
     command = [ 'mpvpaper', 'ALL', '-fp', '-l', 'background', '-o' ]
-    mpv_options_list = [ '--no-audio', '--loop=inf', '--s', '--no-stop-screensaver', '--player-operation-mode=pseudo-gui','--really-quiet' ]
+    mpv_options_list = [ '--no-audio', '--vo=gpu', '--loop=inf', '--s', '--no-stop-screensaver', '--player-operation-mode=pseudo-gui','--really-quiet', f'--hwdec={hwdec_value}']
     if extarg: mpv_options_list.extend(extarg.split())
     mpv_options_string = " ".join(mpv_options_list)
     command.append(mpv_options_string)
@@ -19,7 +19,8 @@ def set_video_wallpaper_wl(video_file, extarg=None):
         sys.exit(1)
 
 def set_video_wallpaper_x11(video_file, extarg=None):
-    command = [ 'mpv', '--wid=0', '--loop=inf', '--no-audio', '--no-stop-screensaver', '--player-operation-mode=pseudo-gui', '--really-quiet' ]
+
+    command = [ 'mpv', '--wid=0','--vo=gpu','--loop=inf', '--no-audio', '--no-stop-screensaver', '--player-operation-mode=pseudo-gui', '--really-quiet', f'--hwdec={hwdec_value}']
     if extarg: command.extend(extarg.split())
     command.append(video_file)
     try:
@@ -53,6 +54,7 @@ def convert_and_get_path(video_file_path: str) -> str:
     else:
         return video_file_path
 
+
 def main():
     dependencies = ['ffmpeg', 'mpv', 'mpvpaper']
     missing_deps = [dep for dep in dependencies if not shutil.which(dep)]
@@ -70,6 +72,8 @@ def main():
     if not args.video_file or not os.path.exists(args.video_file):
         print(f"Error: Video file '{args.video_file}' not found or not specified.", file=sys.stderr)
         sys.exit(1)
+    configwrite()
+    configread()
 
     session = get_display_server()
     usable_video_path = convert_and_get_path(args.video_file)
