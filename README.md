@@ -1,11 +1,7 @@
 # Paperlike, dynamic wallpaper for Linux
-Thanks weebp
-
-This is a rewrite of weebp in Python. It is a wrapper for mpv/mpvpaper.
+A wrapper for mpv/mpvpaper.
 
 This rewrite is only compatitable with .mp4 files, athough indirectly supporting other formats through a convert feature.
-
-This was written with the help of AI. Of course, I'm still the main contributer though.
 
 Why, you ask? This offers argumentless switching (quite neat for people who do want to change their BG regularly) and more convenient feature.
 
@@ -21,9 +17,10 @@ Watch paperlike in action (Hyprland):
 - [ ] Automatically use GPU rendering
 - [ ] Load playlist/anything from the Internet
 - [ ] Works on KDE Plasma (fuck that shit)
+- [ ] Additional start/stop/quit arguments
 
 # Installation & Usage (stable)
-Dependencies: mpv, mpvpaper, ffmpeg
+Dependencies: mpv, mpvpaper, ffmpeg, libmpv
 
 To compile mpvpaper: libmpv-dev (apt), mpv-libs-devel (dnf). Arch users need not to worry about this
 
